@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:news/common/apis/newsAPI.dart';
 import 'package:news/common/entity/entity.dart';
+import 'package:news/common/router/router.gr.dart';
 import 'package:news/common/utils/utils.dart';
 import 'package:news/common/values/values.dart';
 import 'package:news/common/widgets/widgets.dart';
@@ -203,7 +205,17 @@ class _CategoryPageState extends State<CategoryPage> {
                       padding: EdgeInsets.only(left: 20),
                       width: duSetWidth(319),
                       height: duSetWidth(385),
-                      child: hotNewsWidget(entity: item, maxLine: 2),
+                      child: InkWell(
+                        child: hotNewsWidget(
+                          entity: item,
+                          maxLine: 2,
+                        ),
+                        onTap: () {
+                          ExtendedNavigator.rootNavigator.pushNamed(
+                              Routes.detailsPageRoute,
+                              arguments: DetailsPageArguments(newsItem: item));
+                        },
+                      ),
                     );
                     // return Text("data");
                   },
