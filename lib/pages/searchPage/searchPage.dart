@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:news/common/apis/newsAPI.dart';
 import 'package:news/common/entity/entity.dart';
+import 'package:news/common/router/router.gr.dart';
 import 'package:news/common/utils/utils.dart';
 import 'package:news/common/values/values.dart';
 import 'package:news/common/widgets/widgets.dart';
@@ -265,7 +266,14 @@ class _SearchPageState extends State<SearchPage> {
                   childAspectRatio: 160 / 270,
                   shrinkWrap: true,
                   children: _newsPageList.items.map((item) {
-                    return hotNewsWidget(entity: item);
+                    return InkWell(
+                      child: hotNewsWidget(entity: item),
+                      onTap: () {
+                        ExtendedNavigator.rootNavigator.pushNamed(
+                            Routes.detailsPageRoute,
+                            arguments: DetailsPageArguments(newsItem: item));
+                      },
+                    );
                   }).toList(),
                 ),
               ],
