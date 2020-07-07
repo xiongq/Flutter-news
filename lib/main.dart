@@ -35,11 +35,10 @@ class MyApp extends StatelessWidget {
         initialRoute: Routes.indexPageRoute,
       ),
       title: 'Flutter Demo',
-      theme: ThemeData.fallback(),
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      //   visualDensity: VisualDensity.adaptivePlatformDensity,
-      // ),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
     );
   }
 }
