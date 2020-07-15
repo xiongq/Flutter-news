@@ -10,7 +10,7 @@ Widget channelsWidget({
 }) {
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 20),
-    height: duSetWidth(97),
+    height: duSetHeight(100),
     // width: double.infinity,
     child: GridView.count(
       scrollDirection: Axis.horizontal,
@@ -19,7 +19,7 @@ Widget channelsWidget({
       mainAxisSpacing: 10,
       crossAxisCount: 1,
       //宽高比
-      childAspectRatio: 97 / 70,
+      childAspectRatio: 99 / 70,
       shrinkWrap: true,
       children: channels.map((item) {
         return InkWell(
@@ -58,7 +58,8 @@ Widget channelsWidget({
                       ],
                     ),
                   ),
-                  Spacer(),
+                  // Spacer(),
+                  SizedBox(height: 12),
                   Text(
                     item.title,
                     textAlign: TextAlign.center,

@@ -248,7 +248,7 @@ class _CategoryPageState extends State<CategoryPage> {
                 Divider(),
                 _buildTags(),
                 _buildRecomedNew(),
-                Divider(),
+                Divider(height: 1,),
                 _buildNewsList(),
               ],
             ),

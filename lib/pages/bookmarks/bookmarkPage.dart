@@ -65,7 +65,7 @@ class _BookMarkPageState extends State<BookMarkPage> {
     return _channels == null
         ? Container()
         : Container(
-            padding: EdgeInsets.only(top: 10),
+            padding: EdgeInsets.symmetric(vertical: 10),
             child: channelsWidget(channels: _channels),
           );
   }
@@ -92,7 +92,7 @@ class _BookMarkPageState extends State<BookMarkPage> {
               _buildHeader(),
               Divider(),
               _buildChannel(),
-              Divider(),
+              Divider(height: 1,),
               _buildNews(),
             ],
           ),
