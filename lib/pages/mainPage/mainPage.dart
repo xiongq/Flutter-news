@@ -21,7 +21,8 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<MainPage>  with AutomaticKeepAliveClientMixin{
+
   NewsPageListResponseEntity _newsPageList; // 新闻翻页
   NewsRecommendResponseEntity _newsRecommend; // 新闻推荐
   List<CategoryResponseEntity> _categories; // 分类
@@ -29,6 +30,8 @@ class _MainPageState extends State<MainPage> {
   String _selCategoryCode; // 选中的分类Code
 
   EasyRefreshController _controller; // EasyRefresh控制器
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -36,6 +39,7 @@ class _MainPageState extends State<MainPage> {
     _controller = EasyRefreshController();
     _loadAllData();
     _loadLatestWithDiskCache();
+    print("MainPage init");
   }
 
   // 如果有磁盘缓存，延迟3秒拉取更新档案
@@ -126,7 +130,7 @@ class _MainPageState extends State<MainPage> {
     return _channels == null
         ? Container()
         : Container(
-          padding: EdgeInsets.only(top:10),
+          padding: EdgeInsets.symmetric(vertical: 10),
             child: channelsWidget(channels: _channels),
           );
   }
