@@ -1,0 +1,412 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "news",
+    "version": "last",
+    "description": "flutter news"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "用户",
+      "description": null
+    },
+    {
+      "name": "新闻",
+      "description": null
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/user/login": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "login",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@email"
+                  },
+                  "description": "邮箱"
+                },
+                "password": {
+                  "type": "string",
+                  "description": "密码"
+                }
+              },
+              "required": [
+                "email",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "access_token": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@guid"
+                  },
+                  "description": "令牌"
+                },
+                "display_name": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@cname"
+                  },
+                  "description": "用户名"
+                },
+                "channels": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "用户通道"
+                }
+              },
+              "required": [
+                "access_token",
+                "display_name"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "tags": [
+          "新闻"
+        ],
+        "summary": "分类",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "mock": {
+                      "mock": "@id"
+                    }
+                  },
+                  "title": {
+                    "type": "string",
+                    "mock": {
+                      "mock": "@name"
+                    }
+                  }
+                },
+                "required": [
+                  "code",
+                  "title"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/recommend": {
+      "get": {
+        "tags": [
+          "新闻"
+        ],
+        "summary": "推荐新闻",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "thumbnail": {
+                  "type": "string",
+                  "description": "拖欠",
+                  "mock": {
+                    "mock": "@image"
+                  }
+                },
+                "title": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@string"
+                  }
+                },
+                "category": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@string"
+                  }
+                },
+                "addtime": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@timestamp"
+                  }
+                },
+                "author": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@name"
+                  }
+                },
+                "url": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@url"
+                  }
+                },
+                "id": {
+                  "type": "string",
+                  "mock": {
+                    "mock": "@id"
+                  }
+                }
+              },
+              "required": [
+                "thumbnail",
+                "title",
+                "author",
+                "addtime",
+                "category",
+                "url",
+                "id"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/channels": {
+      "get": {
+        "tags": [
+          "新闻"
+        ],
+        "summary": "推荐频道",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "thumbnail": {
+                    "type": "string",
+                    "description": "频道图片",
+                    "mock": {
+                      "mock": "@image"
+                    }
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "ID",
+                    "mock": {
+                      "mock": "@id"
+                    }
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "频道名",
+                    "mock": {
+                      "mock": "@string"
+                    }
+                  }
+                },
+                "required": [
+                  "thumbnail",
+                  "title",
+                  "code"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/populartags": {
+      "get": {
+        "tags": [
+          "新闻"
+        ],
+        "summary": "流行标签",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tagId": {
+                    "type": "string"
+                  },
+                  "tagName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tagId",
+                  "tagName"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news": {
+      "get": {
+        "tags": [
+          "新闻"
+        ],
+        "summary": "翻页",
+        "description": "",
+        "parameters": [
+          {
+            "name": "categoryCode",
+            "in": "query",
+            "required": false,
+            "description": "分类ID",
+            "type": "string"
+          },
+          {
+            "name": "channelCode",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "counts": {
+                  "type": "integer"
+                },
+                "pagesize": {
+                  "type": "integer"
+                },
+                "pages": {
+                  "type": "integer"
+                },
+                "page": {
+                  "type": "integer"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "mock": {
+                          "mock": "@id"
+                        }
+                      },
+                      "title": {
+                        "type": "string",
+                        "mock": {
+                          "mock": "@string"
+                        }
+                      },
+                      "category": {
+                        "type": "string"
+                      },
+                      "thumbnail": {
+                        "type": "string"
+                      },
+                      "author": {
+                        "type": "string",
+                        "mock": {
+                          "mock": "@name"
+                        }
+                      },
+                      "addtime": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "mock": {
+                          "mock": "@url"
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "thumbnail",
+                      "category",
+                      "title",
+                      "url",
+                      "addtime",
+                      "author"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "counts",
+                "pagesize",
+                "pages",
+                "page",
+                "items"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
