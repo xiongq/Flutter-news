@@ -198,7 +198,7 @@ class _SearchPageState extends State<SearchPage> {
                     runSpacing: 10,
                     children: _popularTagList.map((item) {
                       return Container(
-                        height: duSetHeight(32),
+                        // height: duSetHeight(32),
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           color: AppColors.secondaryElement,
