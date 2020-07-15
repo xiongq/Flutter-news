@@ -192,7 +192,7 @@ class _SearchPageState extends State<SearchPage> {
                 ),
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
                   child: Wrap(
                     spacing: 10,
                     runSpacing: 10,
@@ -292,9 +292,10 @@ class _SearchPageState extends State<SearchPage> {
               _buildSearchTextField(),
               Divider(),
               _buildTopChannels(),
-              Divider(),
+              SizedBox(height:10),
+              Divider(height: 1,),
               _buildPopularTags(),
-              Divider(),
+              Divider(height: 1,),
               _buildHotNews(),
             ],
           ),
