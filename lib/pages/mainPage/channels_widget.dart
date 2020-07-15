@@ -10,7 +10,7 @@ Widget channelsWidget({
 }) {
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 20),
-    height: duSetWidth(102),
+    height: duSetWidth(97),
     // width: double.infinity,
     child: GridView.count(
       scrollDirection: Axis.horizontal,
@@ -36,11 +36,12 @@ Widget channelsWidget({
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  Spacer(),
                   Container(
                     height: duSetHeight(64),
                     width: duSetHeight(64),
                     child: Container(
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(6),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -57,21 +58,18 @@ Widget channelsWidget({
                       ],
                     ),
                   ),
-                  // Spacer(),
-                  SizedBox(height: 12),
-                  Expanded(
-                    child: Text(
-                      item.title,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.clip,
-                      maxLines: 1,
-                      style: TextStyle(
-                        color: AppColors.thirdElementText,
-                        fontFamily: "Avenir",
-                        fontWeight: FontWeight.w400,
-                        fontSize: duSetFontSize(14),
-                        height: 1,
-                      ),
+                  Spacer(),
+                  Text(
+                    item.title,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.clip,
+                    maxLines: 1,
+                    style: TextStyle(
+                      color: AppColors.thirdElementText,
+                      fontFamily: "Avenir",
+                      fontWeight: FontWeight.w400,
+                      fontSize: duSetFontSize(14),
+                      height: 1,
                     ),
                   ),
                   Spacer(),
