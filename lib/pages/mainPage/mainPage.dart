@@ -21,8 +21,8 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage>  with AutomaticKeepAliveClientMixin{
-
+class _MainPageState extends State<MainPage>
+    with AutomaticKeepAliveClientMixin {
   NewsPageListResponseEntity _newsPageList; // 新闻翻页
   NewsRecommendResponseEntity _newsRecommend; // 新闻推荐
   List<CategoryResponseEntity> _categories; // 分类
@@ -130,7 +130,7 @@ class _MainPageState extends State<MainPage>  with AutomaticKeepAliveClientMixin
     return _channels == null
         ? Container()
         : Container(
-          padding: EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.symmetric(vertical: 10),
             child: channelsWidget(channels: _channels),
           );
   }
@@ -184,23 +184,160 @@ class _MainPageState extends State<MainPage>  with AutomaticKeepAliveClientMixin
             child: btnFlatButtonWidget(
               onPressed: () {},
               width: duSetWidth(335),
-              height: duSetWidth(44),
+              height: duSetHeight(44),
               fontWeight: FontWeight.w600,
+              fontSize: 16,
               title: "Subscribe",
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
-            child: Center(
-              child: Text.rich(
-                TextSpan(children: <TextSpan>[
+            padding: const EdgeInsets.fromLTRB(0, 20, 20, 0),
+            child: Text.rich(
+              TextSpan(
+                children: <InlineSpan>[
+                  // WidgetSpan(
+                  //   child: Container(
+                  //     margin: EdgeInsets.only(right: 6),
+                  //     child: ClipRRect(
+                  //       borderRadius: BorderRadius.circular(4),
+                  //       child: Container(
+                  //         padding: EdgeInsets.symmetric(horizontal: 4),
+                  //         color: Colors.red,
+                  //         child: Text(
+                  //           "自营",
+                  //           textAlign: TextAlign.center,
+                  //           style: new TextStyle(
+                  //             color: Colors.white,
+                  //             fontSize: 14,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  WidgetSpan(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 4),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.all(Radius.circular(3)),
+                          border: new Border.all(color: Colors.red, width: 1),
+                        ),
+                        child: Text(
+                          "自营",
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  WidgetSpan(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 4),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.all(Radius.circular(3)),
+                          border: new Border.all(color: Colors.red, width: 1),
+                        ),
+                        child: Text(
+                          "WidgetSpan 测试",
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  WidgetSpan(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 4),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.all(Radius.circular(3)),
+                          border: new Border.all(color: Colors.red, width: 1),
+                        ),
+                        child: Text(
+                          "黑卡会员",
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  WidgetSpan(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 4),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(3)),
+                          border: new Border.all(
+                              color: Colors.green, width: 1), // 边色与边宽度
+                        ),
+                        child: Text(
+                          "新品",
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.green,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  WidgetSpan(
+                    child: Container(
+                      margin: EdgeInsets.only(right: 6),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(3)),
+                          border: new Border.all(
+                              color: Colors.green, width: 1), // 边色与边宽度
+                        ),
+                        child: Text(
+                          "小米",
+                          textAlign: TextAlign.center,
+                          style: new TextStyle(
+                            color: Colors.green,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 10,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   TextSpan(
-                    text: 'By clicking on Subscribe button you agree to accept',
+                    text:
+                        '小米手环5 NFC版 石墨黑 动态彩屏 智能运动监测 内置小爱同学语音遥控手机\n\nBy clicking on Subscribe button you agree to accept',
                     style: new TextStyle(
-                      color: AppColors.thirdElementText,
-                      fontFamily: "Avenir",
-                      fontWeight: FontWeight.w400,
-                      fontSize: duSetFontSize(14),
+                      // color: AppColors.thirdElementText,
+                      // fontFamily: "Avenir",
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      // backgroundColor: Colors.yellow,
+                      // height: 2.4,
                     ),
                   ),
                   TextSpan(
@@ -210,13 +347,15 @@ class _MainPageState extends State<MainPage>  with AutomaticKeepAliveClientMixin
                       fontFamily: "Avenir",
                       fontWeight: FontWeight.w400,
                       fontSize: duSetFontSize(14),
+                      // backgroundColor: Colors.red,
+                      // height: 1.4,
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         toastInfo(msg: 'Privacy Policy');
                       },
                   ),
-                ]),
+                ],
               ),
             ),
           ),
